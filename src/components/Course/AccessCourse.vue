@@ -15,7 +15,7 @@
 
     <section class="white section">
         <div class="container">
-            <div class="row" v-for="(slide,k) in training">
+            <div class="row" v-for="(slide, k) in training" v-bind:key="k">
                 <div id="course-left-sidebar" class="col-md-5">
                     <div class="course-image-widget">
                       <img :src="slide.image" alt="">
@@ -29,7 +29,7 @@
                     </div><!-- end meta -->
                     <!--<div class="course-button" v-if="usersubscription">
                         <p class="btn btn-primary btn-block">Course Subscribed</p>
-                        <!--<router-link :to="{ name: 'AccessCourse', params: { id: k }}" class="btn btn-primary btn-block">CLICK HERE TO ACCESS THIS COURSE</router-link>-->
+                        <router-link :to="{ name: 'AccessCourse', params: { id: k }}" class="btn btn-primary btn-block">CLICK HERE TO ACCESS THIS COURSE</router-link>-->
                     <!--</div>
                   <div v-else>-->
                   <button class="btn btn-primary btn-block">COURSE SUBSCRIBED</button>
@@ -56,7 +56,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(slide,k) in sessionlist1">
+                                <tr v-for="(slide, k) in sessionlist1" v-bind:key="k">
                                     <td>{{slide.sessionNo}}</td>
                                     <td>
                                       <el-collapse accordion>
