@@ -1,3 +1,7 @@
+const modifyDocUrl = doc => {
+  return Object.assign(doc, { link: "data:text/plain," + btoa(doc.link) });
+};
+
 const state = {
   courses: [
     {
@@ -6,17 +10,17 @@ const state = {
         {
           name: "Doc 1",
           type: "pdf",
-          link: "https://s3.ap-south-1.amazonaws.com/snehatestmz/sample.pdf"
+          link: "http://www.africau.edu/images/default/sample.pdf"
         },
         {
           name: "Doc 2",
           type: "pdf",
-          link: "https://s3.ap-south-1.amazonaws.com/snehatestmz/sample.pdf"
+          link: "http://www.africau.edu/images/default/sample.pdf"
         },
         {
           name: "Doc 3",
           type: "pdf",
-          link: "https://s3.ap-south-1.amazonaws.com/snehatestmz/sample.pdf"
+          link: "http://www.africau.edu/images/default/sample.pdf"
         }
       ]
     }
@@ -26,7 +30,7 @@ const state = {
 
 const getters = {
   courses: ({ courses }) => courses,
-  activeDoc: ({ activeDoc, courses}) => activeDoc || courses[0].docs[0]
+  activeDoc: ({ activeDoc, courses}) => modifyDocUrl(activeDoc || courses[0].docs[0])
 };
 
 const mutations = {
